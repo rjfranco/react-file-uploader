@@ -8,7 +8,7 @@ class App extends Component {
     this.fileInput = React.createRef();
   }
 
-  handleSubmit(event,) {
+  handleSubmit(event) {
     event.preventDefault();
     alert(`Selected file -  ${this.fileInput.current.files[0].name}`);
   }
