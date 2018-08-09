@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.fileInput = React.createRef();
+  }
+
+  handleSubmit(event,) {
+    event.preventDefault();
+    alert(`Selected file -  ${this.fileInput.current.files[0].name}`);
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h1>File Uploader</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <form onSubmit={this.handleSubmit}>
+          <input type="file" name="file" ref={this.fileInput} />
+          <button type="submit">Send the file.</button>
+        </form>
       </div>
     );
   }
