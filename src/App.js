@@ -9,7 +9,13 @@ class App extends Component {
   }
 
   handleSubmit(event) {
-    // event.preventDefault();
+    event.preventDefault();
+    alert(`Selected file -  ${this.getFilename}`);
+  }
+
+  getFilename() {
+    const file = this.fileInput.current.files[0];
+    return file ? file.name : '';
   }
 
   render() {
