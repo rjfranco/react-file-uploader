@@ -9,7 +9,7 @@ class App extends Component {
         <header className="App-header">
           <h1>File Uploader</h1>
         </header>
-        <FileForm handleSubmit={this.handleSubmit} />
+        <FileForm />
       </div>
     );
   }

@@ -3,14 +3,21 @@ import React, { Component } from 'react';
 class FileForm extends Component {
   constructor(props) {
     super(props);
+
+    this.fileName = this.fileName.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
     this.fileInput = React.createRef();
   }
 
   handleSubmit(event) {
     event.preventDefault();
+    console.log(`Selected file - ${this.fileName()}`);
+  }
+
+  fileName() {
     const file = this.fileInput.current.files[0];
-    console.log(`Selected file - ${file ? file.name : 'None Set.'}`);
+    return file ? file.name : undefined;
   }
 
   render() {
