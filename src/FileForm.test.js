@@ -1,5 +1,6 @@
 import React from 'react';
 import FileForm from './FileForm';
+import { addFile } from './FileForm.helpers'
 import { mount, shallow } from 'enzyme';
 
 it('renders without crashing', () => {
@@ -18,11 +19,7 @@ describe('#fileName', () => {
     const fileForm = mount(<FileForm />);
     const fileInput = fileForm.find('input');
 
-    const file = new File(['@_@'], 'face.txt', {type: 'text/plain'});
-    Object.defineProperty(fileInput.instance(), 'files', {
-      value: [file]
-    });
-
+    addFile(fileInput.instance());
     fileInput.simulate('change');
 
     expect(fileForm.instance().fileName()).toEqual('face.txt');
