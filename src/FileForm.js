@@ -25,9 +25,20 @@ class FileForm extends Component {
     return this.file() ? this.file().name : undefined;
   }
 
-  setupFormData() {
+  formData() {
     let formData = new FormData();
-    formData.append('file', this.file())
+    formData.append('filename', this.fileName());
+    formData.append('file', this.file());
+    return formData;
+  }
+
+  submitData() {
+    return fetch('upload', {
+      method: 'POST',
+      body: this.formData()
+    })
+    .then(response => response.json())
+    .catch(error => console.error('Request Error:', error));
   }
 
   render() {

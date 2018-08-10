@@ -36,4 +36,18 @@ describe('#fileName', () => {
 
     expect(fileForm.instance().fileName()).toEqual('face.txt');
   });
+});
+
+describe('#formData', () => {
+  it('should return a FormData instance', () => {
+    const fileForm = mount(<FileForm />);
+    const fileInput = fileForm.find('input');
+
+    addFile(fileInput.instance());
+    fileInput.simulate('change');
+
+    expect(fileForm.instance().formData().get('filename')).toEqual('face.txt');
+  });
+});
+
 })
