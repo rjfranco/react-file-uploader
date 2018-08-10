@@ -11,9 +11,17 @@
     "react-scripts": "1.1.4",
     "react-test-renderer": "^16.4.2"
   },
+  "jest": {
+    "collectCoverageFrom" : [
+      "src/**/*.{js,jsx}",
+      "!src/index.js"
+    ]
+  },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "build": "react-scripts build",
+    "test:coverage": "react-scripts test --env=jsdom --coverage",
+    "test:debug": "react-scripts --inspect-brk test --runInBand --env=jsdom",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
