@@ -4,7 +4,6 @@ class FileForm extends Component {
   constructor(props) {
     super(props);
 
-    this.fileName = this.fileName.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
     this.fileInput = React.createRef();
@@ -12,12 +11,23 @@ class FileForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(`Selected file - ${this.fileName()}`);
+
+    if (!this.file()) return;
+  
+    const formData = this.setupFormData();
+  }
+
+  file() {
+    return this.fileInput.current.files[0];
   }
 
   fileName() {
-    const file = this.fileInput.current.files[0];
-    return file ? file.name : undefined;
+    return this.file() ? this.file().name : undefined;
+  }
+
+  setupFormData() {
+    let formData = new FormData();
+    formData.append('file', this.file())
   }
 
   render() {

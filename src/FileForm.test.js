@@ -7,6 +7,18 @@ it('renders without crashing', () => {
   shallow(<FileForm />);
 });
 
+describe('#file', () => {
+  it('should return a file from the input when selected', () => {
+    const fileForm = mount(<FileForm />);
+    const fileInput = fileForm.find('input');
+
+    addFile(fileInput.instance());
+    fileInput.simulate('change');
+
+    expect(fileForm.instance().file().name).toEqual('face.txt');
+  })
+})
+
 describe('#fileName', () => {
   it('should return undefined when no file selected', () => {
     const fileForm = mount(<FileForm />);
