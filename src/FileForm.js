@@ -14,7 +14,7 @@ class FileForm extends Component {
 
     if (!this.file()) return;
 
-    this.submitData().then((response) => {
+    return this.submitData().then((response) => {
       this.props.onFileInfoChange(response);
     });
   }

@@ -5,11 +5,7 @@ import FileForm from './FileForm';
 class App extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      fileInfo: {}
-    }
-
+    this.state = { fileInfo: undefined }
     this.onFileInfoChange = this.onFileInfoChange.bind(this);
   }
 
