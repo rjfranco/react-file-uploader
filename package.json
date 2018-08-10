@@ -18,6 +18,7 @@
       "!src/index.js"
     ]
   },
+  "proxy": "https://protected-ridge-42856.herokuapp.com",
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "build": "react-scripts build",
