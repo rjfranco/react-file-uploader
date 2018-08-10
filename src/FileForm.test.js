@@ -1,6 +1,6 @@
 import React from 'react';
 import FileForm from './FileForm';
-import { addFile } from './FileForm.helpers'
+import { addFile, mockResponse } from './FileForm.helpers'
 import { mount, shallow } from 'enzyme';
 
 it('renders without crashing', () => {
@@ -16,8 +16,8 @@ describe('#file', () => {
     fileInput.simulate('change');
 
     expect(fileForm.instance().file().name).toEqual('face.txt');
-  })
-})
+  });
+});
 
 describe('#fileName', () => {
   it('should return undefined when no file selected', () => {
@@ -50,4 +50,41 @@ describe('#formData', () => {
   });
 });
 
+describe('#handleSubmit', () => {
+  window.fetch = jest.fn().mockImplementation(function() {
+    return Promise.resolve(mockResponse(200, null, '{"total":3,"counts":{"data":1,"some":1,"test":1}}'));
+  });
+
+  const fileForm = mount(<FileForm />);
+  const fileInput = fileForm.find('input');
+  addFile(fileInput.instance());
+
+  return fileForm.instance().handleSubmit({preventDefault: () => {}}).then(() => {
+    expect(fileForm.props().fileInfo).toEqual({"total":3,"counts":{"data":1,"some":1,"test":1}});
+  });
+});
+
+describe('#submitData', () => {
+  it('should return a json data set on success', () => {
+    window.fetch = jest.fn().mockImplementation(function() {
+      return Promise.resolve(mockResponse(200, null, '{"total":3,"counts":{"data":1,"some":1,"test":1}}'));
+    });
+
+    const fileForm = mount(<FileForm />);
+    return fileForm.instance().submitData().then((data) => {
+      expect(data).toEqual({"total":3,"counts":{"data":1,"some":1,"test":1}});
+    });
+  });
+
+  it('should log to the console on error', () => {
+    console.error = jest.fn();
+    window.fetch = jest.fn().mockImplementation(function() {
+      return Promise.reject(mockResponse(500, 'Oh no!', '{"error": "Something went terribly wrong."}'));
+    });
+
+    const fileForm = mount(<FileForm />);
+    return fileForm.instance().submitData().catch((data) => {
+      expect(console.error).toBeCalled();
+    });
+  })
 })

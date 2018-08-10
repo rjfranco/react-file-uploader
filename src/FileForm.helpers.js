@@ -4,3 +4,11 @@ export function addFile(element) {
     value: [file]
   });
 }
+
+export function mockResponse(status, statusText, response) {
+  return new window.Response(response, {
+    status: status,
+    statusText: statusText,
+    headers: {'Content-type': 'application/json'}
+  });
+};

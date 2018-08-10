@@ -13,8 +13,10 @@ class FileForm extends Component {
     event.preventDefault();
 
     if (!this.file()) return;
-  
-    const formData = this.setupFormData();
+
+    this.submitData().then((response) => {
+      this.props.onFileInfoChange(response);
+    });
   }
 
   file() {
