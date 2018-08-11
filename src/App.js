@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import FileForm from './FileForm';
+import FileInfoTable from './FileInfoTable';
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +20,11 @@ class App extends Component {
         <header className="App-header">
           <h1>File Uploader</h1>
         </header>
-        <FileForm fileInfo={this.state.fileInfo} onFileInfoChange={this.onFileInfoChange} />
+        <FileForm onFileInfoChange={this.onFileInfoChange} />
+
+        {this.state.fileInfo &&
+          <FileInfoTable fileInfo={this.state.fileInfo} />
+        }
       </div>
     );
   }
