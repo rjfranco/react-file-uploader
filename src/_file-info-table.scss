@@ -1,4 +1,17 @@
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10rem) rotate(10deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
 main {
+  animation: slideIn 1s;
   background: $white;
   border: .5rem solid $light-grey;
   margin: 0 auto 1rem;
