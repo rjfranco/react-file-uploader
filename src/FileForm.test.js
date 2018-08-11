@@ -17,6 +17,11 @@ describe('#file', () => {
 
     expect(fileForm.instance().file().name).toEqual('face.txt');
   });
+
+  it('should return undefined when none is selected', () => {
+    const fileForm = mount(<FileForm />);
+    expect(fileForm.instance().file()).toBeUndefined();
+  });
 });
 
 describe('#fileName', () => {
