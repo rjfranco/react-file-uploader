@@ -16,8 +16,8 @@
 form {
   background: $white;
   border: .5rem solid $light-grey;
-  display: inline-block;
-  margin: 0 8rem 1rem;
+  margin: 0 auto 1rem;
+  max-width: 34.3rem;
   padding: 2rem;
 
   button {
