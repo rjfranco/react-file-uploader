@@ -11,7 +11,7 @@ class App extends Component {
   }
 
   onFileInfoChange(fileInfo) {
-    this.setState({ fileInfo: fileInfo });
+    this.setState({ fileInfo });
   }
 
   render() {
