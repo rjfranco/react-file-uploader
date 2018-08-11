@@ -52,16 +52,17 @@ describe('#formData', () => {
 
 // This seems to be the right idea from docs, I can find — but spy is never called
 // I can't seem to find better documentation for spying / mocking component prop functions
-describe.skip('#handleSubmit', () => {
+describe('#handleSubmit', () => {
   const spy = jest.fn();
   const fileForm = mount(<FileForm onFileInfoChange={spy} />);
   const fileInput = fileForm.find('input');
+
   addFile(fileInput.instance());
 
   fileForm.instance().submitData = jest.fn().mockImplementation(() => Promise.resolve('called'));
-  fileForm.instance().handleSubmit({preventDefault: () => {}});
-
-  expect(spy).toBeCalledWith('called');
+  return fileForm.instance().handleSubmit({preventDefault: () => {}}).then(() => {
+    expect(spy).toBeCalledWith('called');
+  });
 });
 
 describe('#submitData', () => {
