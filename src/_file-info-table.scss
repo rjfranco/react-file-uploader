@@ -1,0 +1,40 @@
+main {
+  background: $white;
+  border: .5rem solid $light-grey;
+  margin: 0 auto 1rem;
+  max-width: 34.3rem;
+  padding: 2rem;
+
+  h2 {
+    margin: 0;
+
+    span {
+      color: $pink;
+      font-family: 'Sedgwick Ave', cursive;
+      font-size: 3rem;
+      margin: -.7rem 0 0 .5rem;
+      max-width: 26rem;
+      overflow: hidden;
+      position: absolute;
+      text-overflow: ellipsis;
+    }
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  tr {
+    td {
+      border-bottom: 1px solid $lightish-grey;
+      padding: .2rem 0 .25rem;
+    }
+
+    &:last-of-type {
+      td {
+        border: 0;
+      }
+    }
+  }
+}

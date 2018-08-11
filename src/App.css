@@ -328,6 +328,32 @@ form {
     white-space: nowrap;
     width: 18.5rem; }
 
+main {
+  background: #fff;
+  border: 0.5rem solid #f1f1f1;
+  margin: 0 auto 1rem;
+  max-width: 34.3rem;
+  padding: 2rem; }
+  main h2 {
+    margin: 0; }
+    main h2 span {
+      color: #ff589b;
+      font-family: 'Sedgwick Ave', cursive;
+      font-size: 3rem;
+      margin: -.7rem 0 0 .5rem;
+      max-width: 26rem;
+      overflow: hidden;
+      position: absolute;
+      text-overflow: ellipsis; }
+  main table {
+    border-collapse: collapse;
+    width: 100%; }
+  main tr td {
+    border-bottom: 1px solid #ddd;
+    padding: .2rem 0 .25rem; }
+  main tr:last-of-type td {
+    border: 0; }
+
 body {
   background: url("90s-paisley-pattern.png");
   font-family: 'Open Sans', sans-serif; }
@@ -336,7 +362,7 @@ h1 {
   color: #ff589b;
   font-family: 'Sedgwick Ave', cursive;
   font-size: 3.5rem;
-  max-width: 39.3rem;
   margin: 2rem auto;
+  max-width: 39.3rem;
   text-shadow: 0.1rem 0.1rem 0 #000;
   transform: rotate(-8deg) translate(-3rem, 1.25rem); }

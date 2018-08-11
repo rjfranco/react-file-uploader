@@ -21,7 +21,7 @@ class FileInfoTable extends Component {
   render() {
     return (
       <main>
-        <h2>Total Words: {this.props.fileInfo.total}</h2>
+        <h2>Total Words: <span>{this.props.fileInfo.total}</span></h2>
 
         <h3>Appearances per word</h3>
         <table>
