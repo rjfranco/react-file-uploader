@@ -7,7 +7,7 @@ A sample React app that allows uploading to an endpoint.
 - From the root directory, run `yarn`
 
 ## Running
-- Just use `yarn run start` from the root of the app, and then you can visit [localhost:3000](http://localhost:3000)
+- Just use `yarn run start` from the root of the app, and then you can visit [localhost:3000](http://localhost:3000), though it should launch the browser on its own.
 
 
 ## Additional Information
