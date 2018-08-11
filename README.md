@@ -4,6 +4,7 @@ A sample React app that allows uploading to an endpoint.
 ## Setup
 - Make sure you have the current LTS build of node installed
 - Install yarn
+- From the root directory, run `yarn`
 
 ## Running
 - Just use `yarn run start` from the root of the app, and then you can visit [localhost:3000](http://localhost:3000)
