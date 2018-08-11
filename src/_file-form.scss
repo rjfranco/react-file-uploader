@@ -1,0 +1,27 @@
+%button {
+  background: $pink;
+  border: 0;
+  border-radius: .3rem;
+  color: $white;
+  padding: .5rem .75rem;
+}
+
+form {
+  background: $white;
+  border: .5rem solid $light-grey;
+  display: inline-block;
+  margin: 0 8rem 1rem;
+  padding: 2rem;
+
+  button {
+    @extend %button;
+  }
+
+  [type='file'] {
+    opacity: 0;
+  }
+
+  label {
+    @extend %button;
+  }
+}

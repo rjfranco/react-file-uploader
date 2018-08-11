@@ -1,0 +1,19 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans|Sedgwick+Ave';
+@import 'normalize';
+@import 'variables';
+@import 'file-form';
+
+body {
+  background: url('90s-paisley-pattern.png');
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  color: $pink;
+  display: inline-block;
+  font-family: 'Sedgwick Ave', cursive;
+  font-size: 3.5rem;
+  margin: 4rem;
+  text-shadow: .1rem .1rem 0 $black;
+  transform: rotate(-8deg);
+}
