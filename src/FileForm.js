@@ -5,8 +5,13 @@ class FileForm extends Component {
     super(props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
-
+    this.fileName = this.fileName.bind(this);
+    this.setFileNameState = this.setFileNameState.bind(this);
     this.fileInput = React.createRef();
+
+    this.state = {
+      fileName: undefined
+    }
   }
 
   handleSubmit(event) {
@@ -20,7 +25,7 @@ class FileForm extends Component {
   }
 
   file() {
-    return this.fileInput.current.files[0];
+    return this.fileInput.current ? this.fileInput.current.files[0] : undefined;
   }
 
   fileName() {
@@ -43,11 +48,19 @@ class FileForm extends Component {
     .catch(error => console.error('Request Error:', error));
   }
 
+  setFileNameState() {
+    this.setState({ fileName: this.fileName() });
+  }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="file" name="file" ref={this.fileInput} />
-        <button type="submit">Send the file.</button>
+        <label htmlFor="file-input">Choose a file</label>
+        <input id="file-input" type="file" name="file" ref={this.fileInput} onChange={this.setFileNameState} />
+        {this.state.fileName &&
+          <p className="file-name">{this.state.fileName}</p>
+        }
+        <button disabled={!this.state.fileName} type="submit">Send the file</button>
       </form>
     );
   }

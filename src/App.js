@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>File Uploader</h1>
+          <h1>File Word Counter</h1>
         </header>
         <FileForm onFileInfoChange={this.onFileInfoChange} />
 

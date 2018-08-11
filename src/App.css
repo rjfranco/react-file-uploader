@@ -303,7 +303,12 @@ form button, form label {
   border: 0;
   border-radius: .3rem;
   color: #fff;
+  cursor: pointer;
+  outline: none;
   padding: .5rem .75rem; }
+  form button:disabled, form label:disabled {
+    background: #ccc;
+    cursor: default; }
 
 form {
   background: #fff;
@@ -313,6 +318,15 @@ form {
   padding: 2rem; }
   form [type='file'] {
     opacity: 0; }
+  form p {
+    color: #333;
+    height: 1.15rem;
+    margin: -1.6rem 8rem;
+    overflow: hidden;
+    position: absolute;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 18.5rem; }
 
 body {
   background: url("90s-paisley-pattern.png");
